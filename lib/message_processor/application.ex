@@ -9,9 +9,10 @@ defmodule MessageProcessor.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      MessageProcessorWeb.Endpoint
+      MessageProcessorWeb.Endpoint,
       # Starts a worker by calling: MessageProcessor.Worker.start_link(arg)
       # {MessageProcessor.Worker, arg},
+      MessageProcessor.ProcessingQueue
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
