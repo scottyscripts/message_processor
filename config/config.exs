@@ -14,6 +14,9 @@ config :message_processor, MessageProcessorWeb.Endpoint,
   render_errors: [view: MessageProcessorWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: MessageProcessor.PubSub, adapter: Phoenix.PubSub.PG2]
 
+config :message_processor,
+  default_queue_name: "default"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
