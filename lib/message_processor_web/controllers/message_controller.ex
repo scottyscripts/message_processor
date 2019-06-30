@@ -7,6 +7,9 @@ defmodule MessageProcessorWeb.MessageController do
     queue = Map.get(params, "queue")
             |> determine_queue_name
 
+    message
+    |> MessageProcessor.ProcessingQueue.enqueue(queue)
+
     conn
     |> send_resp(200, "")
   end
