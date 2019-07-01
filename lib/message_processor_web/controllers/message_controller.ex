@@ -16,6 +16,7 @@ defmodule MessageProcessorWeb.MessageController do
 
   def schedule_message_for_processing(conn, _params) do
     conn
+    |> put_status(500)
     |> json(%{error: "Specify the following params: 'message' (required), 'queue' (optional)'"})
   end
 
